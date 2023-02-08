@@ -1,0 +1,45 @@
+version: "3.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+## example story
+
+- story: user asks for more information
+  steps:
+  - intent: positive_follow_up
+    entities:
+    - subject:
+        - "FCR"
+        - "Action Pack"
+        - "Learning Set"
+        - "Resources"
+        - "Forms"
+        - "Coach"
+  - action: action_ask_for_more_info
